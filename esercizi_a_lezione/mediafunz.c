@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-double media(double v[], int len);
+double media(double *v, int len);
 
 #define MAXS 50
 
@@ -26,7 +26,7 @@ int main() {
     return 0;
 }
 
-double media(double v[], int n) {
+double media(double *v, int n) {
     double med=0;
     for (int i=0; i<n; i++) {
         med+=v[i];
