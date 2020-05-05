@@ -11,7 +11,7 @@ int main() {
         printf("Inserire il %do valore: ", i+1);
         scanf("%d", &a[i]);
     }
-    printf("La somma degli elementi del vettore è %d\n", somma_ric(a, n));
+    printf("La somma degli elementi del vettore è %d\n", somma_ric(a, vettlen(a)));
     return 0;
 }
 
