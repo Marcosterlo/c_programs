@@ -9,20 +9,18 @@ typedef struct {
 } poligono;
 
 poligono creapoli();
-//double areapoli(poligono p);
-//double perimpoli(poligono p);
+double areapoli(poligono p);
+double perimpoli(poligono p);
 void doppiopoli(poligono *p);
 
 int main() {
     poligono p;
     p=creapoli();
-    //printf("L'area del poligono inserito è %.2lf\n", areapoli(p));
-    //printf("Il perimetro del poligono inserito è %.2lf\n", perimpoli(p));
-    printf("nlati: %d, llato: %.2lf\n", p.nlati, p.lato);
+    printf("L'area del poligono inserito è %.2lf\n", areapoli(p));
+    printf("Il perimetro del poligono inserito è %.2lf\n", perimpoli(p));
     doppiopoli(&p);
-    //printf("L'area del poligono con lato doppio è %.2lf\n", areapoli(p));
-    //printf("Il perimetro del poligono con lato doppio è %.2lf\n", perimpoli(p));
-    printf("nlati: %d, llato: %.2lf\n", p.nlati, p.lato);
+    printf("L'area del poligono con lato doppio è %.2lf\n", areapoli(p));
+    printf("Il perimetro del poligono con lato doppio è %.2lf\n", perimpoli(p));
     return 0;
 }
 
@@ -35,13 +33,13 @@ poligono creapoli() {
     return p;
 }
 
-/*double areapoli(poligono p) {
+double areapoli(poligono p) {
     return (pow(p.lato, 2)*p.nlati)/4*tan(M_PI/p.nlati);
 }
 
 double perimpoli(poligono p) {
     return p.nlati*p.lato;
-}*/
+}
 
 void doppiopoli(poligono *p) {
     p->lato*=2;
