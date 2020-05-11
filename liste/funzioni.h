@@ -1,38 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct nodo {
+static struct nodo {
     int val;
     struct nodo *next;
 };
 
 typedef struct nodo *Nodo;
 
-static Nodo head=NULL;
-
-Nodo AddToHead(int i) {
+void Display(Nodo head) {
     Nodo p;
-    if ((p=malloc(sizeof(Nodo)))!=NULL); {
-        p->val=i;
+    if (head==NULL) 
+        printf("Lista vuota\n");
+    p=head;
+    while (p!=NULL) {
+        printf("%d->  ", p->val);
+        p=p->next;
+    }
+    printf("\n");
+}
+
+Nodo AddToHead(Nodo head, int i) {
+    Nodo p, temp;
+    p=malloc(sizeof(Nodo));
+    p->val=i;
+    if (head==NULL) {
+        head=p;
+        head->next=NULL;
+    }
+    else {
         p->next=head;
         head=p;
     }
     return head;
 }
 
-void AddToTail(int i) {
-    Nodo testa=head, p;
-    while (testa->next!=NULL) {
-        testa=testa->next;
+Nodo AddToTail(Nodo head, int i) {
+    Nodo temp, p;
+    temp=malloc(sizeof(Nodo));
+    temp->val=i;
+    temp->next=NULL;
+    if (head==NULL) {
+        head=temp;
     }
-    if ((p=malloc(sizeof(Nodo))!=NULL)) {
-        testa->next=p;
-        p->val=i;
-        p->next=NULL;
+    else {
+        p=head;
+        while (p->next!=NULL) 
+            p=p->next;
+        p->next=temp;
     }
+    return head;
 }
 
-void RemoveFromHead(Nodo head) {
+/*void RemoveFromHead(Nodo head) {
     Nodo p;
     int x;
     if (head!=NULL) {
@@ -49,4 +69,4 @@ void RemoveFromTail() {
 
 void ClearAll() {
     
-}
+}*/
