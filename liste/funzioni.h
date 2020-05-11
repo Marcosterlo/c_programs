@@ -52,21 +52,36 @@ Nodo AddToTail(Nodo head, int i) {
     return head;
 }
 
-/*void RemoveFromHead(Nodo head) {
+Nodo RemoveFromHead(Nodo head) {
     Nodo p;
+    //nel caso servisse estrarre il valore
     int x;
-    if (head!=NULL) {
-        x = head->val;
-        p=head;
-        head=head->next;
-        free(p);
+    x=head->val;
+    p=head;
+    head=head->next;
+    free(p);
+    return head;
+}
+
+void RemoveFromTail(Nodo head) {
+    Nodo p, q;
+    int x;
+    p=head;
+    while (p->next->next!=NULL) 
+        p=p->next;
+    q=p->next;
+    x=q->val;
+    p->next=NULL;
+    free(q);
+}
+
+Nodo ClearAll(Nodo head) {
+    Nodo p, temp; 
+    p=head;
+    while (p!=NULL) {
+        temp=p;
+        p=p->next;
+        free(temp);
     }
+    return NULL;
 }
-
-void RemoveFromTail() {
-
-}
-
-void ClearAll() {
-    
-}*/
