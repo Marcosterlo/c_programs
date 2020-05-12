@@ -2,7 +2,7 @@
 #include "funzioni.h"
 
 int main() {
-    Nodo head=NULL;
+    Nodo head=NULL, *p=&head;
     int n, exit=1, scelta;
     do {
         printf("Inserire il numero corrispondente all'operazione desiderata:\n****\n1) Aggiungere alla testa\n2) Aggiungere alla coda\n");
@@ -12,24 +12,24 @@ int main() {
             case 1: 
             printf("Inserire il valore del nodo: ");
             scanf("%d", &n);
-            head=AddToHead(head, n);
+            AddToHead(p, n);
             break;
             case 2:
             printf("Inserire il valore del nodo: ");
             scanf("%d", &n);
-            head=AddToTail(head, n);
+            AddToTail(p, n);
             break;
             case 3:
-            head=RemoveFromHead(head);
+            RemoveFromHead(p);
             break;
             case 4:
-            RemoveFromTail(head);
+            RemoveFromTail(p);
             break;
             case 5:
-            head=ClearAll(head);
+            ClearAll(p);
             break;
             case 6:
-            Display(head);
+            Display(p);
             break;
             case 7:
             exit=0;
