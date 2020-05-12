@@ -172,7 +172,7 @@ int listSort(Nodo *head, int *ordinata, int *crescente) {
 }
 
 void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
-    int x;
+    int x, continua=1;
     Nodo p=malloc(sizeof(Nodo)), iter;
     if (*ordinato);
     else {
@@ -180,10 +180,12 @@ void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
     }
     printf("Inserire il valore da aggiungere: ");
     scanf("%d", &x);
+    iter=*head;
+    p->val=x;
     if (*crescente) {
-
+       
     }
     else {
-
+        
     }
 }
