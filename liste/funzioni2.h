@@ -183,9 +183,41 @@ void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
     iter=*head;
     p->val=x;
     if (*crescente) {
-       
+       for (iter=*head; continua && iter!=NULL; iter=iter->next) {
+            if (p->val < iter->val && iter==*head) {
+                p->next=iter;
+                *head=p;
+                continua=0;
+            }
+            if (p->val < iter->next->val) {
+                p->next=iter->next;
+                iter->next=p;
+                continua=0;
+            }
+            if (p->val > iter->val && iter->next==NULL) {
+                p->next=NULL;
+                iter->next=p;
+                continua=0;
+            }
+        }
     }
     else {
-        
+        for (iter=*head; continua && iter!=NULL; iter=iter->next) {
+            if (p->val > iter->val && iter==*head) {
+                p->next=iter;
+                *head=p;
+                continua=0;
+            }
+            if (p->val > iter->next->val) {
+                p->next=iter->next;
+                iter->next=p;
+                continua=0;
+            }
+            if (p->val < iter->val && iter->next==NULL) {
+                p->next=NULL;
+                iter->next=p;
+                continua=0;
+            }
+        }
     }
 }
