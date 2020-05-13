@@ -189,16 +189,16 @@ void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
                 *head=p;
                 continua=0;
             }
-            if (p->val < iter->next->val) {
-                p->next=iter->next;
-                iter->next=p;
-                continua=0;
-            }
-            if (p->val > iter->val && iter->next==NULL) {
+            else if (p->val > iter->val && iter->next==NULL) {
                 p->next=NULL;
                 iter->next=p;
                 continua=0;
             }
+            else if (p->val < iter->next->val) {
+                p->next=iter->next;
+                iter->next=p;
+                continua=0;
+            }  
         }
     }
     else {
@@ -208,13 +208,13 @@ void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
                 *head=p;
                 continua=0;
             }
-            if (p->val > iter->next->val) {
-                p->next=iter->next;
+            else if (p->val < iter->val && iter->next==NULL) {
+                p->next=NULL;
                 iter->next=p;
                 continua=0;
             }
-            if (p->val < iter->val && iter->next==NULL) {
-                p->next=NULL;
+            else if (p->val > iter->next->val) {
+                p->next=iter->next;
                 iter->next=p;
                 continua=0;
             }
