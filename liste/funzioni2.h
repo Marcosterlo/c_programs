@@ -230,7 +230,7 @@ Nodo listFind(Nodo *head, int ordinato, int crescente) {
     printf("Inserire il valore dell'indice da cu iniziare a cercare: ");
     scanf("%d", &indice);
     if (ordinato) {
-        for (i=0; i<indice || iter!=NULL; i++, iter=iter->next);
+        for (i=1; i<indice || iter!=NULL; i++, iter=iter->next);
         if (crescente) {
             if (valore>iter->val) {
                 printf("Valore non trovato\n");
