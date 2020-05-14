@@ -221,3 +221,61 @@ void listAddOrdered(Nodo *head, int *ordinato, int *crescente, int *count) {
         }
     }
 }
+
+Nodo listFind(Nodo *head, int ordinato, int crescente) {
+    int valore, indice, i;
+    Nodo iter=*head;
+    printf("Inserire il valore da cercare: ");
+    scanf("%d", &valore);
+    printf("Inserire il valore dell'indice da cu iniziare a cercare: ");
+    scanf("%d", &indice);
+    if (ordinato) {
+        for (i=0; i<indice || iter!=NULL; i++, iter=iter->next);
+        if (crescente) {
+            if (valore>iter->val) {
+                printf("Valore non trovato\n");
+                return NULL;
+            }
+            else {
+                for (; iter!=NULL || iter->val!=valore || valore>iter->val; iter=iter->next);
+                if (iter!=NULL || valore>iter->val) {
+                    printf("Valore trovato\n");
+                    return iter;
+                }
+                else
+                    printf("Valore non trovato\n");
+                    return NULL;
+            }
+        }
+        else {
+            if (valore<iter->val) {
+                printf("Valore non trovato\n");
+                return NULL;
+            }
+            else {
+                for (; iter!=NULL || iter->val!=valore || valore<iter->val; iter=iter->next);
+                if (iter!=NULL || valore<iter->val) {
+                    printf("Valore trovato\n");
+                    return iter;
+                }
+                else {
+                    printf("Valore non trovato\n");
+                    return NULL;
+                }
+            }
+        }
+        
+    }
+    else {
+        for (i=0; i<indice || iter!=NULL; i++, iter=iter->next);
+        for (; iter!=NULL || iter->val!=valore; iter=iter->next);
+        if (iter!=NULL) {
+            printf("Valore trovato\n");
+            return iter;
+        }
+        else {
+            printf("Valore non trovato\n");
+            return NULL;
+        }
+    }
+}
